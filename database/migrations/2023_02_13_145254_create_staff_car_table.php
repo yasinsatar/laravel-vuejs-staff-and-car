@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('staff_car', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('car_id');
             $table->foreignId('staff_id');
+            $table->foreignId('car_id');
             $table->timestamps();
         });
     }

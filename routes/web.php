@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Pages\StaffCarController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,9 +15,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [StaffCarController::class, 'index'])->name('pages.index');
+Route::get('/create', [StaffCarController::class, 'create'])->name('pages.create');
+Route::get('/update/{id}', [StaffCarController::class, 'update'])->name('pages.update');
+Route::get('/detail/{id}', [StaffCarController::class, 'detail'])->name('pages.detail');
+
+
 
 Auth::routes();
 

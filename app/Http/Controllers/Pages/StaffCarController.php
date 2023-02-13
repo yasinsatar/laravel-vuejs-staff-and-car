@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 class StaffCarController extends Controller
 {
+    
     public function index(){
         return view('pages.staffCar.index');
     }

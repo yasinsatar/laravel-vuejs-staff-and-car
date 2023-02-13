@@ -15,10 +15,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [StaffCarController::class, 'index'])->name('pages.index');
-Route::get('/create', [StaffCarController::class, 'create'])->name('pages.create');
-Route::get('/update/{id}', [StaffCarController::class, 'update'])->name('pages.update');
-Route::get('/detail/{id}', [StaffCarController::class, 'detail'])->name('pages.detail');
+Route::get('/', [StaffCarController::class, 'index'])->name('pages.staffCar.index');
+Route::get('/create', [StaffCarController::class, 'create'])->name('pages.staffCar.create');
+Route::get('/update/{id}', [StaffCarController::class, 'update'])->name('pages.staffCar.update');
+Route::get('/detail/{id}', [StaffCarController::class, 'detail'])->name('pages.staffCar.detail');
 
 
 

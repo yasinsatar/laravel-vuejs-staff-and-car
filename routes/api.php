@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\StaffCarController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -16,6 +17,8 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::group(['namespace' => 'api'], function () {
+    Route::get('getStaffCar',[StaffCarController::class,'index'])->name('api.getStaffCar');
+    Route::delete('/delete/{id}',[StaffCarController::class,'destroy'])->name('api.deleteStaffCar');
 
 });
 

@@ -6,26 +6,38 @@
 
 import './bootstrap';
 import { createApp } from 'vue';
-
-/**
- * Next, we will create a fresh Vue application instance. You may then begin
- * registering components with the application instance so they are ready
- * to use in your application's views. An example is included for you.
- */
-
-const app = createApp({});
+import { ZiggyVue } from '../../vendor/tightenco/ziggy/dist/vue.es.js';
+import { Ziggy } from './ziggy';
 
 
+// Pages
 import StaffCarIndex from '@/pages/staffCar/index.vue';
 import StaffCarCreate from '@/pages/staffCar/create.vue';
 import StaffCarUpdate from '@/pages/staffCar/update.vue';
 import StaffCarDetail from '@/pages/staffCar/detail.vue';
 
+// Components
+import { Bootstrap5Pagination } from 'laravel-vue-pagination';
 
+
+
+const app = createApp({});
+
+
+
+// Pages
 app.component('StaffCarIndex',StaffCarIndex);
 app.component('StaffCarCreate',StaffCarCreate);
 app.component('StaffCarUpdate',StaffCarUpdate);
 app.component('StaffCarDetail',StaffCarDetail);
+
+// Components
+app.component('Bootstrap5Pagination',Bootstrap5Pagination);
+
+// Uses
+app.use(ZiggyVue, Ziggy);
+
+
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue

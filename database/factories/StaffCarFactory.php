@@ -20,8 +20,8 @@ class StaffCarFactory extends Factory
      */
     public function definition()
     {
-        $exc_staff = Staff::whereNotIn('id', StaffCar::all()->pluck('staff_id'))->pluck("id");
-        $exc_car   = Car::whereNotIn('id',StaffCar::all()->pluck('car_id'))->pluck("id");
+        $exc_staff = Staff::all(["id"])->whereNotIn('id', StaffCar::all(["staff_id"])->pluck('staff_id'))->pluck("id");
+        $exc_car   = Car::all(["id"])->whereNotIn('id',StaffCar::all(["car_id"])->pluck('car_id'))->pluck("id");
        
         return [
             'staff_id' => $this->faker->unique()->randomElement($exc_staff),

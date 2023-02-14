@@ -12,11 +12,12 @@
                                     <tr>
                                         <th>Staff Name</th>
                                         <th>Car Info</th>
+                                        <th>Transactions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr
-                                        v-for="row in laravelData.data"
+                                        v-for="row in tableData.data"
                                         :key="row.id"
                                     >
                                         <td>{{ row.staff.name }}</td>
@@ -37,14 +38,17 @@
                                                         Göster
                                                     </button>
                                                 </a>
-                                                <a href="">
+                                                <a :href="route(
+                                                            'pages.staffCar.update',
+                                                            { id: row.id }
+                                                        )">
                                                     <button
                                                         class="btn btn-sm btn-primary"
                                                     >
                                                         Düzenle
                                                     </button>
                                                 </a>
-                                                <a href="">
+                                                <a href="javascript:void(0)">
                                                     <button
                                                         class="btn btn-sm btn-danger"
                                                     >
@@ -57,7 +61,7 @@
                                 </tbody>
                             </table>
                             <Bootstrap5Pagination
-                                :data="laravelData"
+                                :data="tableData"
                                 @pagination-change-page="getResults"
                             />
                         </div>
@@ -71,7 +75,7 @@
 export default {
     data() {
         return {
-            laravelData: {},
+            tableData: {},
         };
     },
     created() {      
@@ -81,9 +85,9 @@ export default {
     methods: {
         getResults(page = 1) {
             axios
-                .get(`${this.route("api.getStaffCar")}/?page=${page}`)
+                .get(`${this.route("api.staffCar.all")}/?page=${page}`)
                 .then((res) => {
-                    this.laravelData = res.data;
+                    this.tableData = res.data;
                     this.changeParam("page", page);
                 });
         },

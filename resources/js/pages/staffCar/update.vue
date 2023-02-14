@@ -3,7 +3,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Personel Araç Güncelle</div>
+                <div class="card-header">Staff of Car Update</div>
 
                 <div class="card-body">
                     <form @submit.prevent="submitUpdate">
@@ -88,7 +88,7 @@
                             </div>
 
                             <button type="submit" class="btn btn-primary">
-                                Add
+                                Update
                             </button>
                         </form>
                 </div>

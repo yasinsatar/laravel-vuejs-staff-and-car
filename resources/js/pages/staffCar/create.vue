@@ -3,14 +3,14 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">Personel Araç Ekle</div>
+                    <div class="card-header">Staff of Car Create</div>
                     <div class="card-body">
                         <form @submit.prevent="submitCreate">
                             <div class="mb-3">
                                 <label
                                     for="exampleInputEmail1"
                                     class="form-label"
-                                    >Cars</label
+                                    >Araçlar</label
                                 >
                                 <select
                                     v-model="form.car_id"
@@ -18,7 +18,7 @@
                                     aria-label="Default select example"
                                 >
                                     <option value="" selected>
-                                        Please, select a car
+                                        Lütfen bir araç seçin.
                                     </option>
                                     <option :value="car.id" v-for="car in cars">
                                         {{ car.car_plate }}
@@ -48,7 +48,7 @@
                                 <label
                                     for="exampleInputPassword1"
                                     class="form-label"
-                                    >Staffs</label
+                                    >Personeller</label
                                 >
                                 <select
                                     v-model="form.staff_id"
@@ -56,7 +56,7 @@
                                     aria-label="Default select example"
                                 >
                                     <option value="" selected>
-                                        Please, select a staff
+                                        Lütfen bir personel seçin
                                     </option>
                                     <option
                                         :value="staff.id"
@@ -87,7 +87,7 @@
                             </div>
 
                             <button type="submit" class="btn btn-primary">
-                                Add
+                                Create
                             </button>
                         </form>
                     </div>

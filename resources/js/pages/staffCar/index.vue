@@ -3,7 +3,7 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">Personel Araç Listesi</div>
+                    <div class="card-header">Staff of Car List</div>
 
                     <div class="card-body">
                         <div>
@@ -35,7 +35,7 @@
                                                     <button
                                                         class="btn btn-sm btn-success"
                                                     >
-                                                        Göster
+                                                        Show
                                                     </button>
                                                 </a>
                                                 <a :href="route(
@@ -45,14 +45,14 @@
                                                     <button
                                                         class="btn btn-sm btn-primary"
                                                     >
-                                                        Düzenle
+                                                        Update
                                                     </button>
                                                 </a>
-                                                <a href="javascript:void(0)">
+                                                <a @click.prevent="deleteItem(row.id)">
                                                     <button
                                                         class="btn btn-sm btn-danger"
                                                     >
-                                                        Sil
+                                                        Delete
                                                     </button>
                                                 </a>
                                             </div>
@@ -85,7 +85,7 @@ export default {
     methods: {
         getResults(page = 1) {
             axios
-                .get(`${this.route("api.staffCar.all")}/?page=${page}`)
+                .get(`${this.route("api.staffCar.all",{page:page})}`)
                 .then((res) => {
                     this.tableData = res.data;
                     this.changeParam("page", page);
@@ -107,6 +107,16 @@ export default {
             const queryString = window.location.search;
             const urlParams = new URLSearchParams(queryString);
             return urlParams.has(param)? {value:urlParams.get(param)} : false;
+        },
+        deleteItem(id){
+            if(confirm("Do you really want to delete?")){
+            axios
+                .delete(`${this.route("api.staffCar.delete", {id:id})}`)
+                .then((res) => {
+                    alert(res.data.message);
+                    this.getResults();
+                });  
+            }
         }
     },
 };

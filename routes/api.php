@@ -22,6 +22,7 @@ Route::group(['namespace' => 'api'], function () {
     // StaffCar
     Route::get('staffCar/all',[StaffCarController::class,'index'])->name('api.staffCar.all');
     Route::post('staffCar/create',[StaffCarController::class,'store'])->name('api.staffCar.create');
+    Route::get('staffCar/show/{id}',[StaffCarController::class,'show'])->name('api.staffCar.show');
     Route::get('staffCar/edit/{id}',[StaffCarController::class,'edit'])->name('api.staffCar.edit');
     Route::put('staffCar/update/{id}',[StaffCarController::class,'update'])->name('api.staffCar.update');
     Route::delete('staffCar/delete/{id}',[StaffCarController::class,'destroy'])->name('api.staffCar.delete');

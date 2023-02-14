@@ -35,10 +35,10 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="{{ route('pages.staffCar.index')}}">Personel Araç Listesi</a>
+                            <a class="nav-link active" aria-current="page" href="{{ route('pages.staffCar.index')}}">Staff of Car List</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="{{ route('pages.staffCar.create')}}">Personel'e Araç Ekle</a>
+                            <a class="nav-link active" aria-current="page" href="{{ route('pages.staffCar.create')}}">Staff of Car Create</a>
                         </li>
                     </ul>
 

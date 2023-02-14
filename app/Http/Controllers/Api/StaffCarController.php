@@ -43,6 +43,22 @@ class StaffCarController extends Controller
         return response()->json($result);
     }
 
+    public function show($id)
+    {
+        $result = new stdClass();
+        $result->status = false;
+        $result->data = [];
+        $result->message = "";
+        $staffs=null;
+        try{
+            $result->data =StaffCar::with('staff','car')->findOrFail($id);
+        }catch(\Exception $e){
+            $result->message = "An error occurred while accessing the database.";
+        }
+         
+        return response()->json($result);
+    }
+
     
     public function edit($id)
     {
@@ -87,7 +103,21 @@ class StaffCarController extends Controller
         return response()->json($result);
     }
 
-    public function destroy(Request $request)
+    public function destroy($id)
     {
+        $result = new stdClass();
+        $result->status = false;
+        $result->data = [];
+        $result->message = "Deleted failed.";
+        $staffs = null;
+        try {
+        $staffCar= StaffCar::findOrFail($id);
+        $staffCar->delete();
+        $result->message = "Deleted success.";
+    } catch (\Exception $e) {
+        $result->message = $e->getMessage();
+    }
+
+    return response()->json($result);
     }
 }

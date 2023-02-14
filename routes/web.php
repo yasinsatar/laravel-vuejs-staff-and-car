@@ -14,11 +14,18 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::middleware('auth:sanctum')->group(function(){
+    Route::get('/', function(){
+        return redirect()->route('login');
+    });
+});
 
+Route::middleware('auth:sanctum')->group(function(){
 Route::get('/', [StaffCarController::class, 'index'])->name('pages.staffCar.index');
 Route::get('/create', [StaffCarController::class, 'create'])->name('pages.staffCar.create');
 Route::get('/update/{id}', [StaffCarController::class, 'update'])->name('pages.staffCar.update');
 Route::get('/detail/{id}', [StaffCarController::class, 'detail'])->name('pages.staffCar.detail');
+});
 
 
 

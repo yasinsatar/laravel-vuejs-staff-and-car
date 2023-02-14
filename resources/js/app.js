@@ -6,7 +6,7 @@
 
 import './bootstrap';
 import { createApp } from 'vue';
-import { ZiggyVue } from '../../vendor/tightenco/ziggy/dist/vue.es.js';
+import { ZiggyVue } from '/vendor/tightenco/ziggy/dist/vue.es.js';
 import { Ziggy } from './ziggy';
 
 

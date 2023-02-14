@@ -17,7 +17,7 @@
                                     class="form-select"
                                     aria-label="Default select example"
                                 >
-                                    <option value="17" selected>
+                                    <option value="" selected>
                                         Please, select a car
                                     </option>
                                     <option :value="car.id" v-for="car in cars">
@@ -55,7 +55,7 @@
                                     class="form-select"
                                     aria-label="Default select example"
                                 >
-                                    <option value="0" selected>
+                                    <option value="" selected>
                                         Please, select a staff
                                     </option>
                                     <option
